@@ -1,83 +1,39 @@
-const convertToRoman = require('./roman-numeral-converter')
+const permAlone = require('./no-repeats-please')
 const assert = require('assert')
 
 describe('Tests', function () {
-  it('convertToRoman(2) should return "II".', function () {
-    assert.deepStrictEqual(convertToRoman(2), 'II')
+  it('permAlone("aab") should return a number.', function () {
+    assert(isNumber(permAlone('aab')))
   })
-  it('convertToRoman(3) should return "III".', function () {
-    assert.deepStrictEqual(convertToRoman(3), 'III')
+  it('permAlone("aab") should return 2.', function () {
+    assert.strictEqual(permAlone('aab'), 2)
   })
-  it('convertToRoman(4) should return "IV".', function () {
-    assert.deepStrictEqual(convertToRoman(4), 'IV')
+  it('permAlone("aaa") should return 0.', function () {
+    assert.strictEqual(permAlone('aaa'), 0)
   })
-  it('convertToRoman(5) should return "V".', function () {
-    assert.deepStrictEqual(convertToRoman(5), 'V')
+  it('permAlone("aabb") should return 8.', function () {
+    assert.strictEqual(permAlone('aabb'), 8)
   })
-  it('convertToRoman(9) should return "IX".', function () {
-    assert.deepStrictEqual(convertToRoman(9), 'IX')
+  it('permAlone("abcdefa") should return 3600.', function () {
+    assert.strictEqual(permAlone('abcdefa'), 3600)
   })
-  it('convertToRoman(12) should return "XII".', function () {
-    assert.deepStrictEqual(convertToRoman(12), 'XII')
+  it('permAlone("abfdefa") should return 2640.', function () {
+    assert.strictEqual(permAlone('abfdefa'), 2640)
   })
-  it('convertToRoman(16) should return "XVI".', function () {
-    assert.deepStrictEqual(convertToRoman(16), 'XVI')
+  it('permAlone("zzzzzzzz") should return 0.', function () {
+    assert.strictEqual(permAlone('zzzzzzzz'), 0)
   })
-  it('convertToRoman(29) should return "XXIX".', function () {
-    assert.deepStrictEqual(convertToRoman(29), 'XXIX')
+  it('permAlone("a") should return 1..', function () {
+    assert.strictEqual(permAlone('a'), 1)
   })
-  it('convertToRoman(44) should return "XLIV".', function () {
-    assert.deepStrictEqual(convertToRoman(44), 'XLIV')
+  it('permAlone("aaab") should return 0.', function () {
+    assert.strictEqual(permAlone('aaab'), 0)
   })
-  it('convertToRoman(45) should return "XLV"', function () {
-    assert.deepStrictEqual(convertToRoman(45), 'XLV')
-  })
-  it('convertToRoman(68) should return "LXVIII"', function () {
-    assert.deepStrictEqual(convertToRoman(68), 'LXVIII')
-  })
-  it('convertToRoman(83) should return "LXXXIII"', function () {
-    assert.deepStrictEqual(convertToRoman(83), 'LXXXIII')
-  })
-  it('convertToRoman(97) should return "XCVII"', function () {
-    assert.deepStrictEqual(convertToRoman(97), 'XCVII')
-  })
-  it('convertToRoman(99) should return "XCIX"', function () {
-    assert.deepStrictEqual(convertToRoman(99), 'XCIX')
-  })
-  it('convertToRoman(400) should return "CD"', function () {
-    assert.deepStrictEqual(convertToRoman(400), 'CD')
-  })
-  it('convertToRoman(500) should return "D"', function () {
-    assert.deepStrictEqual(convertToRoman(500), 'D')
-  })
-  it('convertToRoman(501) should return "DI"', function () {
-    assert.deepStrictEqual(convertToRoman(501), 'DI')
-  })
-  it('convertToRoman(649) should return "DCXLIX"', function () {
-    assert.deepStrictEqual(convertToRoman(649), 'DCXLIX')
-  })
-  it('convertToRoman(798) should return "DCCXCVIII"', function () {
-    assert.deepStrictEqual(convertToRoman(798), 'DCCXCVIII')
-  })
-  it('convertToRoman(891) should return "DCCCXCI"', function () {
-    assert.deepStrictEqual(convertToRoman(891), 'DCCCXCI')
-  })
-  it('convertToRoman(1000) should return "M"', function () {
-    assert.deepStrictEqual(convertToRoman(1000), 'M')
-  })
-  it('convertToRoman(1004) should return "MIV"', function () {
-    assert.deepStrictEqual(convertToRoman(1004), 'MIV')
-  })
-  it('convertToRoman(1006) should return "MVI"', function () {
-    assert.deepStrictEqual(convertToRoman(1006), 'MVI')
-  })
-  it('convertToRoman(1023) should return "MXXIII"', function () {
-    assert.deepStrictEqual(convertToRoman(1023), 'MXXIII')
-  })
-  it('convertToRoman(2014) should return "MMXIV"', function () {
-    assert.deepStrictEqual(convertToRoman(2014), 'MMXIV')
-  })
-  it('convertToRoman(3999) should return "MMMCMXCIX"', function () {
-    assert.deepStrictEqual(convertToRoman(3999), 'MMMCMXCIX')
+  it('permAlone("aaabb") should return 12.', function () {
+    assert.strictEqual(permAlone('aaabb'), 12)
   })
 })
+
+function isNumber (val) {
+  return typeof val === 'number'
+}
